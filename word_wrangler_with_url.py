@@ -4,13 +4,26 @@ Student code for Word Wrangler game
 
 import urllib2
 import codeskulptor
+import math
 import poc_wrangler_provided as provided
 codeskulptor.set_timeout(60)
 WORDFILE = "assets_scrabble_words3.txt"
 
 
 # Functions to manipulate ordered word lists
-#http://www.codeskulptor.org/#user36_t1wZgIXXNQ_51.py
+#http://www.codeskulptor.org/#user36_t1wZgIXXNQ_55.py
+
+def binary_search(L,l,r,k):
+    if l>=r:
+        return false
+    mid=math.floor((l+r)/2)
+    if k==L[mid]:
+        return true
+    elif k<L[mid]:
+        binary_search(L,l,mid-1,k)
+    elif k>L[mid]:
+        binary_search(L,mid+1,r,k)
+
 def remove_duplicates(list1):
     """
     Eliminate duplicates in a sorted list.
